@@ -1,27 +1,19 @@
 const express = require('express');
-const crypto  = require('crypto');
-const connection = require('./database/connection')
+
+const adminController = require('./controllers/admin.controller')
+const produtoController = require('./controllers/Produto.controller')
+const vendedorController = require('./controllers/Vendedor.controller')
 
 const routes = express.Router();
 
-routes.get('/admin', async (request, response) => { 
-    const admin = await connection('UserAdmin').select('*');
-    return response.json(admin)
-});
+routes.get('/admin', adminController.index);
+routes.post('/admin', adminController.create);
 
-routes.post('/admin', async (request, response) => {
-    const { nome, email, senha} = request.body;
+routes.get('/produto', produtoController.index);
+routes.post('/produto', produtoController.create);
 
-    const id = crypto.randomBytes(5).toString('HEX')
+routes.get('/vendedores', vendedorController.index);
+routes.post('/vendedores', vendedorController.create);
 
-    await connection('UserAdmin').insert({
-        id,
-        nome,
-        email,
-        senha
-    })
-
-    return response.json({ id });
-});
 
 module.exports = routes;

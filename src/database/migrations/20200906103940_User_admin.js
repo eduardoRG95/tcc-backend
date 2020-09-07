@@ -1,6 +1,6 @@
 exports.up = function(knex) {
     return knex.schema.createTable('UserAdmin', function(table) {
-        table.string('id').primary();
+        table.string('id').primary().unsigned();
         table.string('nome').notNullable();
         table.string('email').notNullable(); 
         table.string('senha').notNullable(); 
