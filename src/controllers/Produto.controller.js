@@ -17,5 +17,19 @@ module.exports = {
             quantidade
         })
         return response.json({ id });
-    }
+    },
+    async delete(request, response) {
+        const { id } = request.body;
+        await connection('Produtos').where('id', id).del()
+        return response.json({ id });
+    },
+    async update(request, response) {
+        const { id, nome, email, cidade, uf } = request.body;
+        await connection('Produtos').where('id', id).update({
+            nome: nome,
+            valor: email,
+            quantidade: cidade         
+        })
+        return response.json({ id });
+    },
 }

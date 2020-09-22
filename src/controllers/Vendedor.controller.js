@@ -1,5 +1,6 @@
 const connection = require('../database/connection');
 const crypto  = require('crypto');
+const { update } = require('../database/connection');
 
 
 module.exports = {
@@ -19,5 +20,24 @@ module.exports = {
             uf,
         })
         return response.json({ id });
-    }
+    },
+    
+    async delete(request, response) {
+        const { id } = request.body;
+        await connection('Vendedores').where('id', id).del()
+        return response.json({ id });
+    },
+
+    async update(request, response) {
+        const { id, nome, email, cidade, uf } = request.body;
+        await connection('Vendedores').where('id', id).update({
+            nome: nome,
+            email: email,
+            cidade: cidade,            
+            uf: uf,          
+        })
+        return response.json({ id });
+    },
+
+    
 }
