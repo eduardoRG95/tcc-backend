@@ -18,7 +18,7 @@ routes.delete('/Clientes', clienteController.delete);
 routes.get('/Produto', produtoController.index);
 routes.put('/Produto', produtoController.create);
 routes.post('/Produto', produtoController.update);
-routes.delete('/Produto', produtoController.delete);
+routes.delete('/Produto/:id', produtoController.delete);
 
 routes.get('/Vendedor', vendedorController.index);
 routes.put('/Vendedor', vendedorController.create);
