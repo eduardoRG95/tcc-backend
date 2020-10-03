@@ -21,7 +21,10 @@ module.exports = {
 
     async delete(request, response) {
         const { id } = request.params;
-       await connection('Produtos').where('id', id).del();
+
+        await connection('Produtos').where('id', id).del();
+
+        console.log("id >>>", id)
 
         return response.json({ id });
     },
