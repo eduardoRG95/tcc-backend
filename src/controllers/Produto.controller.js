@@ -24,8 +24,6 @@ module.exports = {
 
         await connection('Produtos').where('id', id).del();
 
-        console.log("id >>>", id)
-
         return response.json({ id });
     },
 

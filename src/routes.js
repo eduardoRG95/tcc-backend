@@ -23,7 +23,7 @@ routes.delete('/Produto/:id', produtoController.delete);
 routes.get('/Vendedor', vendedorController.index);
 routes.put('/Vendedor', vendedorController.create);
 routes.post('/Vendedor', vendedorController.update);
-routes.delete('/Vendedor', vendedorController.delete);
+routes.delete('/Vendedor/:id', vendedorController.delete);
 
 
 module.exports = routes;
