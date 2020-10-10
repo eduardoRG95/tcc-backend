@@ -3,17 +3,17 @@ const cors = require('cors');
 
 const adminController = require('./controllers/Admin.controller')
 const produtoController = require('./controllers/Produto.controller')
-const clienteController = require('./controllers/Cliente.controller')
+const usuarioController = require('./controllers/Usuario.controller')
 const vendedorController = require('./controllers/Vendedor.controller')
 
 const routes = express.Router();
 
 routes.use(cors());
 
-routes.get('/Clientes', clienteController.index);
-routes.post('/Clientes', clienteController.create);
-routes.put('/Clientes', clienteController.update);
-routes.delete('/Clientes', clienteController.delete);
+routes.get('/Usuario', usuarioController.index);
+routes.put('/Usuario', usuarioController.create);
+routes.post('/Usuario', usuarioController.update);
+routes.delete('/Usuario/:id', usuarioController.delete);
 
 routes.get('/Produto', produtoController.index);
 routes.put('/Produto', produtoController.create);
