@@ -22,7 +22,7 @@ module.exports = {
     },
     
     async delete(request, response) {
-        const { id } = request.body;
+        const { id } = request.params;
         await connection('Vendedores').where('id', id).del()
         return response.json({ id });
     },

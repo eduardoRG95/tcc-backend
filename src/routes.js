@@ -13,7 +13,7 @@ routes.use(cors());
 routes.get('/Usuario', usuarioController.index);
 routes.put('/Usuario', usuarioController.create);
 routes.post('/Usuario', usuarioController.update);
-routes.delete('/Usuario/:id', usuarioController.delete);
+routes.delete('/Usuario/:idUsuario', usuarioController.delete);
 
 routes.get('/Produto', produtoController.index);
 routes.put('/Produto', produtoController.create);
