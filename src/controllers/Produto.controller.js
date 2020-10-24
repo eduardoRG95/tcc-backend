@@ -28,11 +28,11 @@ module.exports = {
     },
 
     async update(request, response) {
-        const { id, nome, email, cidade, uf } = request.body;
+        const { id, nome, valor, quantidade } = request.body;
         await connection('Produtos').where('id', id).update({
             nome: nome,
-            valor: email,
-            quantidade: cidade         
+            valor: valor,
+            quantidade: quantidade         
         })
         return response.json({ id });
     },
