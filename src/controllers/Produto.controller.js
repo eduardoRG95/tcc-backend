@@ -25,7 +25,7 @@ module.exports = {
         await connection('Produtos').where('id', id).del();
 
         return response.json({ id });
-    },
+    },  
 
     async update(request, response) {
         const { id, nome, valor, quantidade } = request.body;
